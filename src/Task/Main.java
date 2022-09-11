@@ -19,6 +19,5 @@ public class Main {
         book2.setYearPublication(2022);
         System.out.println(book2.getNameBook() + " " + book2.getAuthorName() + " " + book2.getYearPublication());
     }
-
 }
 
