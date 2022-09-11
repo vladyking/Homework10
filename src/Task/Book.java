@@ -1,5 +1,7 @@
 package Task;
 
+import java.util.Objects;
+
 public class Book {
 
     private final String nameBook;
@@ -30,10 +32,19 @@ public class Book {
 
     @Override
     public String toString() {
-        return "Book{" +
-                "nameBook='" + nameBook + '\'' +
-                ", author=" + authorName +
-                ", yearPublication=" + yearPublication +
-                '}';
+        return nameBook + authorName + yearPublication;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Book book = (Book) o;
+        return yearPublication == book.yearPublication && nameBook.equals(book.nameBook) && authorName.equals(book.authorName);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(nameBook, authorName, yearPublication);
     }
 }
